@@ -18,9 +18,9 @@ namespace _20109982_Task_1
             HERO, ENEMY, GOLD, WEAPON
         };
 
-        protected int X { get; private set; }
-        protected int Y { get; private set; }
-        protected TileType tile { get; private set; }
+        protected int X { get; set; }
+        protected int Y { get; set; }
+        protected TileType tile { get; set; }
 
 
         //Created the relevant constructor for Q.2.1

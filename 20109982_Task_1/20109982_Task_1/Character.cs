@@ -9,7 +9,7 @@ namespace _20109982_Task_1
     /// <summary>
     /// Q.2.2
     /// </summary>
-    class Character : Tile
+    abstract class Character : Tile
     {
         public enum Movement
         {
@@ -19,16 +19,10 @@ namespace _20109982_Task_1
         protected Tile[] characterVision;
 
         //The start of Q.2.3
-        public Character(int xInput,int yInput, char symbol)
+        public Character(int xInput,int yInput)
         {
-            switch (symbol)
-            {
-                case 'H':
-                    break;
-
-                case 'E':
-                    break;
-            }
+            X = xInput;
+            Y = yInput;
         }
 
         public virtual void Attack(Character target)
@@ -54,13 +48,13 @@ namespace _20109982_Task_1
         /// <returns></returns>
         public virtual bool CheckRange(Character target)
         {
-            if( DistanceTo(target) < 1)
+            int distanceToTarget = DistanceTo(target);
+            bool bareHanded = true;
+            if (bareHanded)
             {
-                return true;
-            } else
-            {
-                return false;
+                distanceToTarget = 1;
             }
+            return true;
         }
 
         /// <summary>
@@ -70,10 +64,12 @@ namespace _20109982_Task_1
         /// <returns></returns>
         private int DistanceTo(Character target)
         {
-            //if ()
-                //int targetXPosition = target.X;
-                //int targetYPosition = target.Y;
-                return 0;
+            //The target's coordinates
+            int targetXPos, targetYPos;
+            targetXPos = target.X;
+            targetYPos = target.Y;
+
+                return 1;
         }
 
         public void Move(Movement move)
@@ -82,8 +78,21 @@ namespace _20109982_Task_1
             switch (move)
             {
                 case Movement.UP:
-                    Tile.X -= 1;
+                    Y -= 1;
                     break;
+
+                case Movement.DOWN:
+                    Y += 1;
+                    break;
+
+                case Movement.LEFT:
+                    X -= 1;
+                    break;
+
+                case Movement.RIGHT:
+                    X += 1;
+                    break;
+
                 default:
                     X = X;
                     Y = Y;
@@ -96,14 +105,14 @@ namespace _20109982_Task_1
         /// </summary>
         /// <param name="move"></param>
         /// <returns></returns>
-        public abstract Movement ReturnMove(Movement move = 0)
-        {
+        //public abstract Movement ReturnMove(Movement move = 0)
+        //{
+        //    return move;
+        //}
 
-        }
+        //public abstract override ToString()
+        //{
 
-        public abstract override ToString()
-        {
-
-        }
+        //}
     }
 }
