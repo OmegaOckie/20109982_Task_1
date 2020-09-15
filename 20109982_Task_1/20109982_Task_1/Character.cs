@@ -19,7 +19,7 @@ namespace _20109982_Task_1
         protected Tile[] characterVision;
 
         //The start of Q.2.3
-        public Character(int xInput,int yInput)
+        public Character(int xInput,int yInput, char symbol) : base()
         {
             X = xInput;
             Y = yInput;

@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Map.cs" />
+    <Compile Include="Hero.cs" />
+    <Compile Include="Goblin.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="EmptyTile.cs" />
