@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEngine.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Goblin.cs" />

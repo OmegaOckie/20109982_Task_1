@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,35 @@ namespace _20109982_Task_1
         {
 
             //Randomised the dimensions of the map.
-            int randomWidth = rng.Next(minimumWidth, maximumWidth);
-            int randomHeight = rng.Next(minimumHeight, maximumHeight);
+            int mapWidth = rng.Next(minimumWidth, maximumWidth);
+            int mapHeight = rng.Next(minimumHeight, maximumHeight);
 
             mapArray = new Tile[randomWidth, randomHeight];
             myEnemies = new Enemy[(randomWidth + randomHeight) / 3];
+
+            Create(Tile);
+            UpdateVision();
+        }
+
+        public void UpdateVision()
+        {
+
+        }
+
+        private Tile Create(Tile type)
+        {
+            int randomX = rng.Next(mapWidth);
+            int randomY = rng.Next(mapHeight);
+
+            switch (type)
+            {
+                case HERO:
+                    mapArray[randomX, randomY] = 'H';
+                    break;
+                case Enemy:
+                    mapArray[randomX, randomY] = 'G';
+                    break;
+            }
         }
     }
 }
