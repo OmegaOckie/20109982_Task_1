@@ -15,8 +15,10 @@ namespace _20109982_Task_1
         {
             NONE, UP, DOWN, LEFT, RIGHT
         }
-        protected int HP, maxHP, damage;
-        protected Tile[] characterVision;
+        protected int HP { get; set; }
+        protected int maxHP { get; set; } 
+        protected int damage { get; set; }
+        protected Tile[] characterVision { get; set; }
 
         //The start of Q.2.3
         public Character(int xInput,int yInput, char symbol) : base()
@@ -48,6 +50,8 @@ namespace _20109982_Task_1
         /// <returns></returns>
         public virtual bool CheckRange(Character target)
         {
+
+            //Unable to calculate range if there is no way to find where the origin point is in acoordance with the target point
             int distanceToTarget = DistanceTo(target);
             bool bareHanded = true;
             if (bareHanded)
@@ -64,6 +68,7 @@ namespace _20109982_Task_1
         /// <returns></returns>
         private int DistanceTo(Character target)
         {
+
             //The target's coordinates
             int targetXPos, targetYPos;
             targetXPos = target.X;
@@ -94,8 +99,6 @@ namespace _20109982_Task_1
                     break;
 
                 default:
-                    X = X;
-                    Y = Y;
                     break;
             }
         }
@@ -105,14 +108,8 @@ namespace _20109982_Task_1
         /// </summary>
         /// <param name="move"></param>
         /// <returns></returns>
-        //public abstract Movement ReturnMove(Movement move = 0)
-        //{
-        //    return move;
-        //}
+        public abstract Movement ReturnMove(Movement move = 0);
 
-        //public abstract override ToString()
-        //{
-
-        //}
+        public abstract override string ToString();
     }
 }

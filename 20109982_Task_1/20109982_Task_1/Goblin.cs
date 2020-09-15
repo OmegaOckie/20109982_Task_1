@@ -11,15 +11,36 @@ namespace _20109982_Task_1
     /// </summary>
     class Goblin : Enemy
     {
-        public Goblin( int xPosition, int yPosition) : base()
+        public Goblin( int xPosition, int yPosition) : base(xPosition, yPosition, 1, 10, 'G')
         {
-            maxHP = 10;
-            enemyDamage = 1;
         }
 
-        public override ReturnMove(Movement rng)
+
+        public override Movement ReturnMove(Movement move = Movement.NONE)
         {
-            return ;
+            int randomDirectionGenerator = rng.Next(5);
+            Movement randomDirection = Movement.NONE;
+            switch (randomDirectionGenerator)
+            {
+                case 0:
+                    randomDirection = Movement.NONE;
+                    break;
+                case 1:
+                    randomDirection = Movement.UP;
+                    break;
+                case 2:
+                    randomDirection = Movement.DOWN;
+                    break;
+                case 3:
+                    randomDirection = Movement.LEFT;
+                    break;
+                case 4:
+                    randomDirection = Movement.RIGHT;
+                    break;
+                default:
+                    break;
+            }
+            return randomDirection;
         }
     }
 }

@@ -16,5 +16,10 @@ namespace _20109982_Task_1
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            playerStatsLabel.Text = 
+        }
     }
 }

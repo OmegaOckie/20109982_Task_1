@@ -26,8 +26,8 @@ namespace _20109982_Task_1
             int mapWidth = rng.Next(minimumWidth, maximumWidth);
             int mapHeight = rng.Next(minimumHeight, maximumHeight);
 
-            mapArray = new Tile[randomWidth, randomHeight];
-            myEnemies = new Enemy[(randomWidth + randomHeight) / 3];
+            mapArray = new Tile[mapWidth, mapHeight];
+            myEnemies = new Enemy[(mapWidth + mapHeight) / 3];
 
             Create(Tile);
             UpdateVision();
@@ -35,7 +35,14 @@ namespace _20109982_Task_1
 
         public void UpdateVision()
         {
+            Tile tileTemp;
+            foreach (Tile temporaryVariable in myEnemies)
+            {
+                for (int i = -1; i < 2; i++)
+                {
 
+                }
+            }
         }
 
         private Tile Create(Tile type)
@@ -45,7 +52,9 @@ namespace _20109982_Task_1
 
             switch (type)
             {
-                case HERO:
+
+                case Tile.TileType.HERO:
+                    
                     mapArray[randomX, randomY] = 'H';
                     break;
                 case Enemy:

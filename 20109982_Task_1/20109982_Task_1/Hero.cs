@@ -11,16 +11,16 @@ namespace _20109982_Task_1
     /// </summary>
     class Hero : Character
     {
-        public Hero(int xInput,int yInput, int HP)
+        public Hero(int xInput,int yInput, int HP) : base(xInput, yInput, 'H')
         {
             this.HP = HP;
             maxHP = HP;
             damage = 2;
         }
 
-        override ReturnMove()
+        public override Movement ReturnMove(Movement move = Movement.NONE)
         {
-            key
+            return Movement.NONE;
         }
 
         public override string ToString()

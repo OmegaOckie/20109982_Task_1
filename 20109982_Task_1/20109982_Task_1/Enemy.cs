@@ -10,9 +10,12 @@ namespace _20109982_Task_1
     {
         protected Random rng = new Random();
 
-        public Enemy(int xPosition, int yPosition, int enemyDamage, int maxHP, char symbol = 'E')
+        public Enemy(int xPosition, int yPosition, int enemyDamage, int startingHP, char symbol = 'E') : base(xPosition, yPosition, symbol)
         {
-            Console.WriteLine("dadsda");
+            X = xPosition;
+            Y = yPosition;
+            maxHP = startingHP;
+            HP = startingHP;
         }
 
         public override string ToString()
