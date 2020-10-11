@@ -13,7 +13,7 @@ namespace _20109982_Task_1
         /// Q.3.1 The variables are declared here.
         /// </summary>
         protected Tile[,] mapArray;
-        protected Hero myHero = new Hero();
+        protected Hero myHero;
         protected Enemy[] myEnemies;
         protected int mapWidth;
         protected int mapHeight;
@@ -29,38 +29,67 @@ namespace _20109982_Task_1
             mapArray = new Tile[mapWidth, mapHeight];
             myEnemies = new Enemy[(mapWidth + mapHeight) / 3];
 
-            Create(Tile);
+            myHero = (Hero)Create(Tile.TileType.HERO);
+
+            for (int i = 0; i < myEnemies.Count(); i++)
+            {
+                myEnemies[i] = (Enemy)Create(Tile.TileType.ENEMY);
+            }
             UpdateVision();
         }
 
         public void UpdateVision()
         {
-            Tile tileTemp;
+            Tile[,] tileTemp;
+            tileTemp = new Tile[mapWidth, mapHeight];
+
             foreach (Tile temporaryVariable in myEnemies)
             {
                 for (int i = -1; i < 2; i++)
                 {
-
+                    if (i + temporaryVariable.X > mapHeight || i + temporaryVariable.X < 0) { continue; }
+                    for (int k = -1; k < 2; k++)
+                    {
+                        if (k + temporaryVariable.Y > mapHeight || k + temporaryVariable.Y < 0) { continue; }
+                        tileTemp[temporaryVariable.X + i, temporaryVariable.Y + k] = mapArray[temporaryVariable.X + i, temporaryVariable.Y + k];
+                        temporaryVariable.characterVision = tileTemp;
+                    }
                 }
             }
         }
 
-        private Tile Create(Tile type)
+        private Tile Create(Tile.TileType type)
         {
-            int randomX = rng.Next(mapWidth);
-            int randomY = rng.Next(mapHeight);
+            Tile tempTile = null;
+            int randomX = rng.Next(1, mapWidth);
+            int randomY = rng.Next(1, mapHeight);
+            int heroHP = 0;
+            char heroSymbol = 'H';
+            while (mapArray[randomX, randomY] != null)
+            {
+                 randomX = rng.Next(1, mapWidth);
+                 randomY = rng.Next(1, mapHeight);
+            }
 
             switch (type)
             {
 
                 case Tile.TileType.HERO:
-                    
-                    mapArray[randomX, randomY] = 'H';
+
+                    tempTile = new Hero(randomX, randomY, heroHP, heroSymbol);
                     break;
-                case Enemy:
-                    mapArray[randomX, randomY] = 'G';
+                case Tile.TileType.ENEMY:
+                    tempTile = new Goblin(randomX,randomY);
+                    break;
+                case Tile.TileType.GOLD:
+                    break;
+                case Tile.TileType.WEAPON:
+                    break;
+                default:
                     break;
             }
+            mapArray[randomX, randomY] = tempTile;
+            return tempTile;
         }
     }
 }

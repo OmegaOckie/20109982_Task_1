@@ -12,16 +12,32 @@ namespace _20109982_Task_1
     /// </summary>
     class GameEngine
     {
-        private Map myMap { get; }
-
-        public GameEngine()
+        public GameEngine(Map map)
         {
-            myMap = new Map();
+            this.map = map;
         }
 
-        public bool MovePlayer(Movement direction)
+        protected Map Map;
+
+        public Map map
         {
-            //Needs to be done with keystrokes.
+            get
+            {
+                return Map;
+            }
+            set
+            {
+                map = value;
+            }
+        }
+        public bool MovePlayer(Character.Movement direction)
+        {
+            return true;
+        }
+
+        public override string ToString()
+        {
+            return null;
         }
     }
 }

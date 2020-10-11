@@ -18,8 +18,31 @@ namespace _20109982_Task_1
             HERO, ENEMY, GOLD, WEAPON
         };
 
-        protected int X { get; set; }
-        protected int Y { get; set; }
+        protected int x;
+        protected int y;
+
+        public int X
+        {
+            get
+            {
+                return x;
+            }
+            set
+            {
+                X = value;
+            }
+        }
+        public int Y
+        {
+            get
+            {
+                return y;
+            }
+            set
+            {
+                Y = value;
+            }
+        }
         protected TileType tile { get; set; }
 
 
@@ -42,7 +65,15 @@ namespace _20109982_Task_1
                 Console.WriteLine("X");
             }
     }
-}
+
+        class EmptyTile : Tile
+        {
+            public EmptyTile(int xInput, int yInput) : base()
+            {
+                Console.WriteLine("X");
+            }
+        }
+    }
 
 
 }

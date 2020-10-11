@@ -18,13 +18,26 @@ namespace _20109982_Task_1
         protected int HP { get; set; }
         protected int maxHP { get; set; } 
         protected int damage { get; set; }
-        protected Tile[] characterVision { get; set; }
+        protected Tile[,] characterVisionArray;
 
         //The start of Q.2.3
         public Character(int xInput,int yInput, char symbol) : base()
         {
             X = xInput;
             Y = yInput;
+        }
+
+        public Tile[,] characterVision
+        {
+            get
+            {
+                return characterVisionArray;
+            }
+            set
+            {
+                characterVisionArray = value;
+            }
+
         }
 
         public virtual void Attack(Character target)
@@ -69,6 +82,7 @@ namespace _20109982_Task_1
         private int DistanceTo(Character target)
         {
 
+            
             //The target's coordinates
             int targetXPos, targetYPos;
             targetXPos = target.X;

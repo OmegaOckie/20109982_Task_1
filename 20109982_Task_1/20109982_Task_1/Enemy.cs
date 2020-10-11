@@ -21,7 +21,7 @@ namespace _20109982_Task_1
         public override string ToString()
         {
             //Following line of code will throw errors since no Enemy Classes exist yet.
-            //return EnemyClassName + " at " + "[" + X + ", " + Y + "]" + "(" + damage + ")";
+            return "Enemy" + " at " + "[" + X + ", " + Y + "]" + "(" + damage + ")";
         }
     }
 }

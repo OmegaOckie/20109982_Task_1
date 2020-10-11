@@ -11,7 +11,8 @@ namespace _20109982_Task_1
     /// </summary>
     class Hero : Character
     {
-        public Hero(int xInput,int yInput, int HP) : base(xInput, yInput, 'H')
+
+        public Hero(int xInput,int yInput, int HP,char symbol) : base(xInput, yInput, 'H')
         {
             this.HP = HP;
             maxHP = HP;
